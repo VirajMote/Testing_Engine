@@ -1,0 +1,14 @@
+# render.yaml — Render deployment configuration
+# Place this in the root of your repository.
+
+services:
+  - type: web
+    name: receipt-processor
+    runtime: python
+    buildCommand: "bash build.sh"
+    startCommand: "uvicorn api:app --host 0.0.0.0 --port $PORT"
+    envVars:
+      - key: PYTHONUNBUFFERED
+        value: "1"
+      - key: PYTHONPATH
+        value: "."
