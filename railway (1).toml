@@ -1,0 +1,12 @@
+# railway.toml — Railway service configuration
+# Optional but recommended: makes build behaviour explicit.
+
+[build]
+builder = "dockerfile"
+dockerfilePath = "Dockerfile"
+
+[deploy]
+healthcheckPath = "/health"
+healthcheckTimeout = 60        # seconds to wait for /health to return 200
+restartPolicyType = "on_failure"
+restartPolicyMaxRetries = 3
